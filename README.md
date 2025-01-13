@@ -20,4 +20,4 @@ Suivez les étapes ci-dessous pour installer et configurer l'application :
 
 1. **Clonez le dépôt :**
    Clonez le projet depuis GitHub dans un répertoire local :
-   git clone https://github.com/RihabElfich/weatherapp.git
+   git clone https://github.com/RihabElfich/PROJET_Application-Meteo_G11.git
