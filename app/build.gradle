@@ -1,0 +1,59 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'ensa.application01.android_weather'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "ensa.application01.android_weather"
+        minSdk 33
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+tasks.register("generateJavadoc", Javadoc) {
+    def androidJavaSrcDirs = android.sourceSets.main.java.srcDirs
+    source = files(androidJavaSrcDirs)
+
+    classpath += files(android.bootClasspath) + files(android.applicationVariants.collect { variant ->
+        variant.javaCompileProvider.get().classpath.files
+    })
+
+    include '**/*.java'
+    exclude '**/R.java', '**/BuildConfig.java', '**/Manifest.java'
+
+    destinationDir = file("$buildDir/docs/javadoc")
+    options.encoding = "UTF-8"
+    options.addStringOption('Xdoclint:none', '-quiet')
+
+}
+
+
+
+dependencies {
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
