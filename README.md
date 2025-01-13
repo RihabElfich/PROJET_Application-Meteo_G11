@@ -6,7 +6,7 @@ Application permet à l'utilisateur de consulter les conditions climatiques actu
 
 - Affichage des prévisions météorologiques actuelles pour une ville donnée.
 - Présentation des températures, conditions climatiques (pluie, ensoleillé, etc.) et d'autres détails météorologiques.
-- Utilisation de l'API OpenWeather pour récupérer les données en temps réel.
+- Utilisation de l'API OpenWeather pour récupérer les données en temps réel et les prévesions du 7 jours.
 
 ## Prérequis
 Avant de commencer, assurez-vous que vous avez installé les éléments suivants :
